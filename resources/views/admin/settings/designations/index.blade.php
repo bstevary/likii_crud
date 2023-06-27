@@ -14,7 +14,7 @@
                 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <form action="POST" class="modal-dialog" role="document">
+                    <form action="{{route('desigations.store',)}}" method="POST" class="modal-dialog" role="document">
                         @csrf
                     <div class="modal-content">
                         <div class="modal-header">
@@ -73,7 +73,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="edit{{$designation->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <form action="POST" class="modal-dialog" role="document">
+    <form action="{{route('desigations.update',$designation)}}" method="POST" class="modal-dialog" role="document">
         @csrf
         @method('PATCH')
     <div class="modal-content">
@@ -109,7 +109,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <form action="POST" class="modal-dialog" role="document">
+    <form action="{{route('desigations.delete',$designation)}}" method="POST" class="modal-dialog" role="document">
         @csrf
         @method('DELETE')
     <div class="modal-content">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admins\settings\DesignationsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::prefix('designations')->group(function(){
+    Route::get('index',[DesignationsController::class,'index'])->name('desigations.index');
+    Route::post('store',[DesignationsController::class,'store'])->name('desigations.store');
+    Route::patch('update/{designation}',[DesignationsController::class,'update'])->name('desigations.update');
+    Route::delete('delete/{designation}',[DesignationsController::class,'destroy'])->name('desigations.delete');
+});
